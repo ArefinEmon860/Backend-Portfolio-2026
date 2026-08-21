@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-carbon: #0A0B0D;
+  --color-carbon-50: #F5F5F4;
+  --color-carbon-100: #121316;
+  --color-carbon-200: #17181C;
+  --color-carbon-300: #1D1F24;
+  --color-carbon-400: #24262B;
+  --color-carbon-500: #3A3D44;
+  --color-carbon-600: #6B6D74;
+  --color-carbon-700: #9A9CA3;
+
+  --color-paper: #FAFAF9;
+  --color-paper-100: #FFFFFF;
+  --color-paper-200: #F1F0EC;
+  --color-paper-300: #E5E4E0;
+  --color-paper-600: #6B6D74;
+  --color-paper-700: #16171A;
+
+  --color-signal: #6C8EFF;
+  --color-signal-dim: #4C5FBF;
+  --color-signal-soft: #8FA6FF;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --animate-blink: blink 1s step-end infinite;
+  --animate-pulse-soft: pulseSoft 2.4s ease-in-out infinite;
+
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+html.has-custom-cursor, html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+::selection {
+  background: #6C8EFF;
+  color: #0A0B0D;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3A3D44;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.mono-num {
+  font-variant-numeric: tabular-nums;
+}
